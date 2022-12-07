@@ -3,9 +3,14 @@ const expressLayouts = require('express-ejs-layouts')
 const morgan = require('morgan')
 const contacts = require('./data/contacts.js')
 const app = express()
+const path = require('path')
 const port = 3000
 
 app.use(express.static("public"));
+
+app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')))
+app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')))
+app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
 
 // pake ejs dan layout
 app.set('view engine', 'ejs')
